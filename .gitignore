@@ -1,0 +1,17 @@
+# Compiled executables
+./main
+main
+*.out
+
+# Object files
+*.o
+*.obj
+
+# C source and header files (optional - only if you want to ignore them)
+# *.c
+# *.h
+
+# Other common files to ignore
+*.a
+*.so
+.DS_Store

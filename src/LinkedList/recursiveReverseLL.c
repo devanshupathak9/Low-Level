@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 
 typedef struct Node {
@@ -6,9 +6,10 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-void insert(Node **head, int data) {
-    Node *node = (Node* )malloc(sizeof(Node));
-    node->data = data, node->next = NULL;
+void insert(Node **head, int val) {
+    Node *node = (Node*)malloc(sizeof(Node));
+    node->data = val;
+    node->next = NULL;
     if (*head == NULL) {
         *head = node;
     } else {
@@ -18,47 +19,29 @@ void insert(Node **head, int data) {
     }
 }
 
-Node* recursiveReverse(Node* head) {
-    if (head == NULL || head->next == NULL) return head;
-    Node *newHead = recursiveReverse(head->next);
-    head->next->next = head;
-    head->next = NULL;
-    return newHead;
-
-    // if (head == NULL || head->next == NULL) return head;
-    // Node *curr = recursiveReverse(head->next);
-    // head->next = NULL;
-    // Node *currNode = curr;
-    // while (currNode->next) {
-    //     currNode = currNode->next;
-    // }
-    // currNode->next = head;
-    // return curr;
-}
-
-void printll(Node *head) {
-    while (head) {
-        printf("%d->", head->data);
-        head = head->next;
+void printll(Node *curr) {
+    while (curr) {
+        printf("%d->", curr->data);
+        curr = curr->next;
     }
     printf("NULL\n");
 }
 
-void freeNode(Node *head) {
-    Node *curr = NULL;
-    while (head) {
-        curr = head;
-        head = head->next;
-        free(curr);
-    }
+Node *reverseLL(Node *curr) {
+    if (curr == NULL || curr->next == NULL) return curr;
+    Node *revNode = reverseLL(curr->next);
+    curr->next->next = curr;
+    curr->next = NULL;
+    return revNode;
 }
 
 int main() {
     Node *head = NULL;
-    for (int i = 1; i < 27; i = i + 4) insert(&head, i);
+    for (int i = 0; i < 20; i = i + 2) {
+        insert(&head, i);
+    }
     printll(head);
-    head = recursiveReverse(head);
-    printll(head);
-    freeNode(head);
+    Node *reverseHead = reverseLL(head);
+    printll(reverseHead);
     return 0;
 }

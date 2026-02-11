@@ -8,8 +8,27 @@
 ## Pointers
 <hr>
 
+## typedef
+typedef is a keyword that is used to provide existing data type with a new name.<br>
+typedef existing_type new_type;<br>
+After the declaration, we can use alias name as if it was the real existing name in the program.
+```c
+typedef long long ll;
+ll x = 10*9;
+
+typedef int * ip;
+ip ptr = &a;
+
+typedef struct Node{
+    int data; 
+    struct Node* next;
+} Node;
+Node* ptr = NULL;
+```
+<hr>
+
 ## Structures (struct)
-Used to group related data.
+structs are user-defined data type that is used to group items of different data types into a single type.
 ```c
 struct Student{
     int id;
@@ -20,8 +39,11 @@ struct Student s1;
 s1.id = 5;
 s1.name = "xyz";
 ```
-## Self Refrentials Structure
+<hr>
 
+## Self-Referential Structures
+The self-referential structures are those structures that contain references to the same type as themselves i.e. they contain a member of the type pointer pointing to the same structure type.
+<hr>
 
 ## Memory Management in C
 ### Stack Memory

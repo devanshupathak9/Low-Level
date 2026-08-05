@@ -1,17 +1,59 @@
-# Compiled executables
-./main
-main
+# Build output
+build/
+bin/
+a.out
 *.out
+*.exe
+main
 
-# Object files
+# Object and intermediate files
 *.o
 *.obj
+*.ko
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.d
+*.i
+# NOTE: *.s is deliberately NOT ignored — hand-written assembly in
+# 06-architecture-and-tooling/assembly/ should be committed.
 
-# C source and header files (optional - only if you want to ignore them)
-# *.c
-# *.h
-
-# Other common files to ignore
+# Libraries
 *.a
 *.so
+*.so.*
+*.dylib
+*.la
+*.lo
+
+# Debug / analysis output
+core
+core.*
+vgcore.*
+*.gcda
+*.gcno
+*.gcov
+perf.data
+perf.data.old
+*.dSYM/
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cache/
+compile_commands.json
+
+# Embedded toolchain output
+.pio/
+.pioenvs/
+Debug/
+Release/
+
+# OS junk
 .DS_Store
+Thumbs.db

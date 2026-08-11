@@ -4,6 +4,7 @@ bin/
 a.out
 *.out
 *.exe
+.notes
 main
 
 # Object and intermediate files

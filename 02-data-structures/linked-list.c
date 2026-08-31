@@ -2,21 +2,16 @@
 #include <stdlib.h>
 
 typedef struct Node {
-    int data;
-    struct Node *next;
+    int value;
+    struct Node* next;
 } Node;
 
-
-void insert(Node **head, int data) {
-    Node *node = (Node *)malloc(sizeof(Node));
-    node->data = data;
+void insert(Node **head, int value) {
+    Node *node = malloc(sizeof(Node));
+    node->value = value;
     node->next = NULL;
-
-    printf("%p\n", head);
-    printf("%p\n", *head);
-    printf("------------\n");
     Node *curr = *head;
-    if (*head) {
+    if (curr) {
         while (curr->next) {
             curr = curr->next;
         }
@@ -28,15 +23,14 @@ void insert(Node **head, int data) {
 
 void print(Node *head) {
     while (head) {
-        printf("%d->", head->data);
+        printf("%d->", head->value);
         head = head->next;
     }
-    printf("NULL\n");
+    printf("\n");
 }
 
 int main() {
     Node *head = NULL;
-    printf("%p-->\n", head);
 
     insert(&head, 43);
     insert(&head, 53);
